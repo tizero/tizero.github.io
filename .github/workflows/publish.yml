@@ -21,9 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Emacs 28.2
-        uses: purcell/setup-emacs@master
-        with:
-          version: 28.2
+        uses: doomemacs/ci@main
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
