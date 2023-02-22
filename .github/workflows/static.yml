@@ -39,7 +39,7 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Update index.html
         run: |
-          "Hello world!" > index.html
+          echo "Hello world!" > index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
