@@ -2,11 +2,11 @@ name: "Export"
 on: [push]
 
 jobs:
-  export:
+  deploy:
     runs-on: ubuntu-latest
+    steps:
     - name: Checkout
-      uses: actions/checkout@v2
-    
+      uses: actions/checkout@v
     - name: Export Org files to GitHub Pages
       uses: tecosaur/org-knit-action@v0.3
       with:
