@@ -11,7 +11,7 @@ RUN echo "\033[1;34mAdd Emacs PPA.\033[0m" &&\
 RUN echo "\033[1;34mUpdate.\033[0m" &&\
   apt-get update &&\
   apt-get install -y emacs28-nox &&\
-  echo "\033[1;32mAll done.\033[0m"
+  echo "\033[1;32mAll done!\033[0m"
   
 RUN echo "\033[1;36mAdd non-root user.\033[0m" &&\
   groupadd runner &&\
