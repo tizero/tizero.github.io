@@ -25,8 +25,8 @@ jobs:
         with:
           version: 28.1
       - name: Clone Doom to ~/.emacs.d
-        run: git clone --depth 1 https://github.com/hlissner/doom-emacs .emacs.d
-      - name: Get Doom's version
+        run: git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+      - name: Get Doom last commit
         id: doom-version
         run: |
           cd ~/.emacs.d
@@ -34,6 +34,6 @@ jobs:
       - name: Cache Doom's Install
         uses: actions/cache@v3
         with:
-          path: .emacs.d
+          path: ~/.emacs.d
           key: doomemacs-${{ steps.doom-version.outputs.hash }}
           
