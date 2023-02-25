@@ -28,5 +28,5 @@ jobs:
         run: git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
       - name: Get Doom's version
         id: doom-version
-        run: cd ~/.config/emacs && echo "doom_hash=$(git log -1 | head -1 | awk '"'"'{print substr($2,1,8)}'"'"')" >> $GITHUB_ENV
+        run: cd ~/.emacs.d && echo "doom_hash=$(git log -1 | head -1 | awk '"'"'{print substr($2,1,8)}'"'"')" >> $GITHUB_ENV
           
