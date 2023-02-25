@@ -24,6 +24,9 @@ jobs:
         uses: purcell/setup-emacs@master
         with:
           version: 28.1
-      - name: Print Emacs version
-        run: emacs --version
+      - name: Clone Doom to ~/.emacs.d
+        run: git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+      - name: Get Doom's version
+        id: doom-version
+        run: cd ~/.config/emacs && echo "doom_hash=$(git log -1 | head -1 | awk '"'"'{print substr($2,1,8)}'"'"')" >> $GITHUB_ENV
           
