@@ -1,43 +1,28 @@
-name: Build and publish with Org mode
-
+name: "Publish"
 on:
   push:
-    branches: main
-  workflow_dispatch:
+    branches: master
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
+# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-20.04 # change to -latest when possible
+    container:
+      image: ghcr.io/tecosaur/emacs-config:latest
+      options: --user 0 # root
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GHCR_TOKEN }}
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Emacs
-        uses: purcell/setup-emacs@master
-        with:
-          version: 28.1
-      - name: Clone Doom
-        run: git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-      - name: Get Doom last commit
-        id: doom-version
-        run: |
-          cd ~/.emacs.d
-          echo "hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
-      - name: Cache Doom's Install
-        id: doomcache
-        uses: actions/cache@v3
-        with:
-          path: ~/.emacs.d
-          key: doomemacs-${{ steps.doom-version.outputs.hash }}
-      - name: Install Doom
-        if: steps.doomcache.outputs.cache-hit != 'true'
-        run: ~/.emacs.d/bin/doom install
-          
+      - name: Test environment
+        run: runner 'emacs --version'
