@@ -15,14 +15,11 @@ concurrency:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04 # change to -latest when possible
-    container:
-      image: ghcr.io/tecosaur/emacs-config:latest
-      options: --user 0 # root
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GHCR_TOKEN }}
-
+    runs-on: ubuntu-latest
     steps:
-      - name: Test environment
-        run: runner 'emacs --version'
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Doom Emacs
+        uses: doomemacs/ci@legacy
+      - name: Test env
+        run: doom version
