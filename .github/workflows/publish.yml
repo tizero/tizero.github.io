@@ -24,7 +24,7 @@ jobs:
         uses: purcell/setup-emacs@master
         with:
           version: 28.1
-      - name: Clone Doom to ~/.emacs.d
+      - name: Clone Doom
         run: git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
       - name: Get Doom last commit
         id: doom-version
@@ -32,8 +32,12 @@ jobs:
           cd ~/.emacs.d
           echo "hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
       - name: Cache Doom's Install
+        id: doomcache
         uses: actions/cache@v3
         with:
           path: ~/.emacs.d
           key: doomemacs-${{ steps.doom-version.outputs.hash }}
+      - name: Install Doom
+        if: steps.doomcache.outputs.cache-hit != 'true'
+        run: ~/.emacs.d/bin/doom install
           
