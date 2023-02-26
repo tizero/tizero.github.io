@@ -27,7 +27,7 @@ jobs:
         with:
           repository: doomemacs/doomemacs
           path: .emacs.d
-          ref: v3.0.0
+          ref: master
       - name: Add bin/doom to PATH
         shell: bash
         run: |
