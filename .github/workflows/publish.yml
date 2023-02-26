@@ -1,23 +1,40 @@
-name: "Publish"
+name: Build with Org mode and deploy to Pages
+
 on:
   push:
-    branches: main
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.0.2
-      - name: Install Doom
-        uses: doomemacs/ci@legacy
+      - uses: actions/checkout@v3
+      - uses: purcell/setup-emacs@master
+        with:
+          version: 28.1
+      - name: Checkout Doom Emacs
+        uses: actions/checkout@v3
+        with:
+          repository: doomemacs/doomemacs
+          path: .emacs.d
+          ref: v3.0.0
+      - name: Add bin/doom to PATH
+        shell: bash
+        run: |
+          perl -MCwd -le 'print Cwd::abs_path shift' .emacs.d >> $GITHUB_PATH
+      - name: Cache packages
+        uses: actions/cache@v3
+        with:
+          path: .emacs.d/.local/straight/repos
+          key: build-${{ hashFiles('.emacs.d/**/packages.el', '.doom.d/**/packages.el', '.doom.d/init.el') }}
+      - run: doom sync
