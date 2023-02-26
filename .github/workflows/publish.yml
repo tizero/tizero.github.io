@@ -22,15 +22,15 @@ jobs:
       - uses: purcell/setup-emacs@master
         with:
           version: 28.1
-      - name: Checkout Doom Emacs
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           repository: doomemacs/doomemacs
           path: .emacs.d
-          ref: master
-      - name: Cache packages
-        uses: actions/cache@v3
+      - shell: bash
+        run: |
+          perl -MCwd -le 'print Cwd::abs_path shift' .emacs.d/bin >> $GITHUB_PATH
+      - uses: actions/cache@v3
         with:
           path: .emacs.d/.local/straight/repos
-          key: build-${{ hashFiles('.emacs.d/**/packages.el', '.doom.d/**/packages.el', '.doom.d/init.el') }}
-      - run: .emacs.d/bin/doom sync
+          key: build-${{ hashFiles('.emacs.d/**/packages.el', '.gihub/init.el') }}
+      - run: doom sync
