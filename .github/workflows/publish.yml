@@ -28,13 +28,9 @@ jobs:
           repository: doomemacs/doomemacs
           path: .emacs.d
           ref: master
-      - name: Add bin/doom to PATH
-        shell: bash
-        run: |
-          perl -MCwd -le 'print Cwd::abs_path shift' '.emacs.d' >> $GITHUB_PATH
       - name: Cache packages
         uses: actions/cache@v3
         with:
           path: .emacs.d/.local/straight/repos
           key: build-${{ hashFiles('.emacs.d/**/packages.el', '.doom.d/**/packages.el', '.doom.d/init.el') }}
-      - run: doom sync
+      - run: .emacs.d/bin/doom sync
