@@ -16,7 +16,13 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04 # change to -latest when possible
+    container:
+      image: ghcr.io/tecosaur/emacs-config:latest
+      options: --user 0 # root
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GHCR_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: purcell/setup-emacs@master
