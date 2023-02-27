@@ -23,6 +23,5 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GHCR_TOKEN }}
     steps:
-      - name: Test
       - run: ls -al
 
