@@ -47,6 +47,6 @@ jobs:
         run: ~/.config/emacs/bin/doom doctor
         
       - name: List files
-        run: ls -al
+        run: pwd && ls -al ~
         
 
