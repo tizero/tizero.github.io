@@ -1,3 +1,3 @@
 FROM alpine:3.16
 
-RUN apk add --no-cache emacs-nox git tar
+RUN apk add --no-cache emacs-nox fd git ripgrep tar
