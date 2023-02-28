@@ -23,7 +23,7 @@ jobs:
         
     steps:
       - name: Checkout repo
-        run: actions/checkout@v3
+        uses: actions/checkout@v3
         
       - name: List files
         run: pwd && ls -al
