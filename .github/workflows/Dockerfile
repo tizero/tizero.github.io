@@ -8,4 +8,4 @@ RUN apk add --no-cache \
   ripgrep \
   tar
 
-WORKDIR /root
+WORKDIR /home
