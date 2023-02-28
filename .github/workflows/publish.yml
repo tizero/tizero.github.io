@@ -23,7 +23,7 @@ jobs:
         
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        run: git clone --depth 1 https://github.com/tizero/tizero.github.io .
         
       - name: Clone Doom to ~/.config/emacs
         run: git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs
