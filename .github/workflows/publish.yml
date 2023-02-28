@@ -42,4 +42,8 @@ jobs:
         
       - name: Doom doctor
         run: ~/.config/emacs/bin/doom doctor
+        
+      - name: Checkout config
+        if: steps.doomcache.outputs.cache-hit != 'true'
+        run: git clone --depth 1 https://github.com/tizero/tizero.github.io.git ~/.config/doom
 
