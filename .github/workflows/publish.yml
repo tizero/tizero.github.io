@@ -1,8 +1,6 @@
 name: Build with Org mode and deploy to Pages
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,13 +13,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test-image:
+  deploy:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/tizero/archlinux:latest
+      image: ghcr.io/tizero/alpine-emacs:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GHCR_TOKEN }}
+        
     steps:
-      - run: ls -al
+      - name: Clone Doom to ~/.config/emacs
+        run: git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs
+        
+      - name: Get Doom's version
+        id: doom-version
+        run: cd ~/.config/emacs && echo "doom_hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+        
+      - name: Cache Doom's Install
+        id: doomcache
+        uses: actions/cache@v3
+        with:
+          path: ~/.config/emacs
+          key: doomemacs-${{ steps.doom-version.outputs.doom_hash }}
+      
+      - name: Install Doom
+        if: steps.doomcache.outputs.cache-hit != 'true'
+        run: ~/.config/emacs/bin/doom install --no-env --no-fonts
 
