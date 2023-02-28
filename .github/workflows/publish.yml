@@ -41,5 +41,5 @@ jobs:
         run: ~/.config/emacs/bin/doom install --no-env --no-fonts
         
       - name: Doom doctor
-        run: ~/config/emacs/bin/doom doctor
+        run: ~/.config/emacs/bin/doom doctor
 
