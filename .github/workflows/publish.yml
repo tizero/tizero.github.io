@@ -36,6 +36,9 @@ jobs:
           path: ~/.config/emacs
           key: doomemacs-${{ steps.doom-version.outputs.doom_hash }}
       
+      - name: Checkout
+        uses: actions/checkout@v3
+      
       - name: Install Doom
         if: steps.doomcache.outputs.cache-hit != 'true'
         run: ~/.config/emacs/bin/doom install --no-env --no-fonts
@@ -43,7 +46,7 @@ jobs:
       - name: Doom doctor
         run: ~/.config/emacs/bin/doom doctor
         
-      - name: Checkout config
-        if: steps.doomcache.outputs.cache-hit != 'true'
-        run: git clone --depth 1 https://github.com/tizero/tizero.github.io.git ~/.config/doom
+      - name: List files
+        run: ls -al
+        
 
