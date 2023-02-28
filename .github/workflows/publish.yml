@@ -37,7 +37,7 @@ jobs:
           key: doomemacs-${{ steps.doom-version.outputs.doom_hash }}
       
       - name: Checkout
-        uses: actions/checkout@v3
+        run: git clone --depth 1 https://github.com/tizero/tizero.github.io ~/.config/doom
       
       - name: Install Doom
         if: steps.doomcache.outputs.cache-hit != 'true'
