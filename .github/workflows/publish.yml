@@ -39,4 +39,7 @@ jobs:
       - name: Install Doom
         if: steps.doomcache.outputs.cache-hit != 'true'
         run: ~/.config/emacs/bin/doom install --no-env --no-fonts
+        
+      - name: Doom doctor
+        run: ~/config/emacs/bin/doom doctor
 
