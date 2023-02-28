@@ -7,3 +7,5 @@ RUN apk add --no-cache \
   git \
   ripgrep \
   tar
+
+WORKDIR /root
