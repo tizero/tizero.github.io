@@ -15,17 +15,12 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/tizero/alpine-emacs:latest
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GHCR_TOKEN }}
         
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
         
-      - name: List files
-        run: pwd && ls -al
+      - name: Install Emacs
+        run: apt-get install -y emacs-nox
         
 
