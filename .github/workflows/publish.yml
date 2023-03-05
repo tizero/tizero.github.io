@@ -1,4 +1,4 @@
-name: Build with Org mode and deploy to Pages
+name: Deploy to Pages
 
 on:
   workflow_dispatch:
@@ -20,7 +20,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
         
-      - name: Install Emacs
-        run: sudo apt-get install -y emacs-nox
-        
-
+      - name: Export Org files to GitHub Pages
+        uses: tecosaur/org-knit-action@v0.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
