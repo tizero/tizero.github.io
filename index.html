@@ -1,298 +1,197 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<!-- 2023-02-26 Sun 09:22 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Test title</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="tiZero" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1">
+  <meta name="Author" content="Made by 'tree'">
+  <meta name="GENERATOR" content="tree v2.1.1 © 1996 - 2023 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro">
+  <title>Directory Tree</title>
+  <style type="text/css">
+   BODY {
+     font-family: monospace, sans-serif;
+     background-color: #282c34;
+     color: #bbc2cf;
+     margin: 40px auto;
+     max-width: 650px;
    }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
+   P { font-family: monospace, sans-serif; color: #bbc2cf; margin: 0px; padding: 0px; }
+   A:visited { text-decoration: none; margin: 0px; padding: 0px;}
+   A:link    { text-decoration: none; margin: 0px; padding: 0px;}
+   A:hover   { text-decoration: none; background-color: #51afef; color: #282c34; margin: 0px; padding: 0px;}
+   A:active  { margin : 0px; padding : 0px;}
+   .VERSION {
+	   font-size: small;
+	   font-family: sans-serif;
+	   color: #5B6268; 
+   }
+   .NORM  { color: #bbc2cf;  }
+   .FIFO  { color: purple;   }
+   .CHAR  { color: yellow;   }
+   .DIR   {
+     color: #98be65;
+     pointer-events: none;
+     font-weight: bold;
+   }
+   .BLOCK { color: yellow;   }
+   .LINK  { color: aqua;     }
+   .SOCK  { color: fuchsia;  }
+   .EXEC  { color: green;    }
+  </style>
 </head>
 <body>
-<div id="content">
-<h1 class="title">Test title</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org2f11d86">1. Header 1</a>
-<ul>
-<li><a href="#org4cde1b6">1.1. Subheader 2</a></li>
-</ul>
-</li>
-<li><a href="#org225d2e8">2. Molto bene</a></li>
-</ul>
-</div>
-</div>
+     <h1>Directory Tree</h1><p>
+	<a class="DIR" href="./uploads/">./uploads</a><br>
+	├── <a class="DIR" href="./uploads/4C/">4C</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116.aux">test-fisica-20240116.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/elettro-1.tex">elettro-1.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/4C-agenda.org">4C-agenda.org</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301-bes.log">test-fisica-20240301-bes.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116-bes.tex">test-fisica-20240116-bes.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/tab1.png">tab1.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301.pdf">test-fisica-20240301.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/quesito-11.pdf">quesito-11.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/elettro-3.tex">elettro-3.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301.synctex.gz">test-fisica-20240301.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/tab2.png">tab2.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301.aux">test-fisica-20240301.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301-bes.synctex.gz">test-fisica-20240301-bes.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-1910.log">test-fisica-1910.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-0210.aux">test-matematica-0210.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-1910.synctex.gz">test-fisica-1910.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116.synctex.gz">test-fisica-20240116.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-recupero.tex">test-matematica-20240305-recupero.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1123-bes.synctex.gz">test-matematica-1123-bes.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116-bes.log">test-fisica-20240116-bes.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1123.aux">test-matematica-1123.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-bes.aux">test-matematica-20240305-bes.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305.synctex.gz">test-matematica-20240305.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/elettro-3.org">elettro-3.org</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116-bes.pdf">test-fisica-20240116-bes.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305.pdf">test-matematica-20240305.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1.synctex.gz">test-matematica-1.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1.tex">test-matematica-1.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1123-bes.pdf">test-matematica-1123-bes.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301-bes.pdf">test-fisica-20240301-bes.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1123.synctex.gz">test-matematica-1123.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116.tex">test-fisica-20240116.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1.aux">test-matematica-1.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-bes.log">test-matematica-20240305-bes.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/disegno-1.png">disegno-1.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301-bes.aux">test-fisica-20240301-bes.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1123-bes.log">test-matematica-1123-bes.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-recupero.pdf">test-matematica-20240305-recupero.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-0210.synctex.gz">test-matematica-0210.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/disegno-2.png">disegno-2.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305.tex">test-matematica-20240305.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-bes.tex">test-matematica-20240305-bes.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1128.pdf">test-matematica-1128.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301.log">test-fisica-20240301.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/0301-1.pdf">0301-1.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-recupero.aux">test-matematica-20240305-recupero.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-1910.tex">test-fisica-1910.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-0210.log">test-matematica-0210.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116-bes.aux">test-fisica-20240116-bes.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301-bes.tex">test-fisica-20240301-bes.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240119.pdf">test-matematica-20240119.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1123-bes.aux">test-matematica-1123-bes.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1123.tex">test-matematica-1123.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116-bes.synctex.gz">test-fisica-20240116-bes.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-recupero.log">test-matematica-20240305-recupero.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/disegno-3.pdf">disegno-3.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/disegno-2-bes.pdf">disegno-2-bes.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1.log">test-matematica-1.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-bes.pdf">test-matematica-20240305-bes.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305.log">test-matematica-20240305.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116.log">test-fisica-20240116.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1123-bes.tex">test-matematica-1123-bes.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/quesito-12.pdf">quesito-12.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240119.log">test-matematica-20240119.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-bes.synctex.gz">test-matematica-20240305-bes.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305-recupero.synctex.gz">test-matematica-20240305-recupero.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240119.synctex.gz">test-matematica-20240119.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240305.aux">test-matematica-20240305.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240119.aux">test-matematica-20240119.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240301.tex">test-fisica-20240301.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-0210.pdf">test-matematica-0210.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-0210.tex">test-matematica-0210.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-1910.pdf">test-fisica-1910.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/disegno-2.pdf">disegno-2.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-1910.aux">test-fisica-1910.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1123.log">test-matematica-1123.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/elettro-1.org">elettro-1.org</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/elettro-3.pdf">elettro-3.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-1.pdf">test-matematica-1.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-fisica-20240116.pdf">test-fisica-20240116.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/4C/test-matematica-20240119.tex">test-matematica-20240119.tex</a><br>
+	│   └── <a class="NORM" href="./uploads/4C/elettro-1.pdf">elettro-1.pdf</a><br>
+	├── <a class="DIR" href="./uploads/5F/">5F</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023-bis.log">test-matematica-16112023-bis.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-10012024.pdf">test-matematica-10012024.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/img1.png">img1.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-10012024.aux">test-matematica-10012024.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023.synctex.gz">test-matematica-16112023.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304.tex">test-matematica-20240304.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-fisica-20240125.aux">test-fisica-20240125.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-fisica-20240125.synctex.gz">test-fisica-20240125.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-tmp.pdf">test-tmp.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-10012024.log">test-matematica-10012024.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023.pdf">test-matematica-16112023.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023.aux">test-matematica-16112023.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-tmp.log">test-tmp.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023.tex">test-matematica-16112023.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023-bis.tex">test-matematica-16112023-bis.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-tmp.synctex.gz">test-tmp.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/amperometro.png">amperometro.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/disegno-1.png">disegno-1.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304.pdf">test-matematica-20240304.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304-bes.aux">test-matematica-20240304-bes.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023-bis.synctex.gz">test-matematica-16112023-bis.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/amp2.png">amp2.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/interrogazioni-fisica.org">interrogazioni-fisica.org</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-10012024.synctex.gz">test-matematica-10012024.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304.synctex.gz">test-matematica-20240304.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-fisica-20240125.tex">test-fisica-20240125.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/5F-agenda.org">5F-agenda.org</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/cdc-20240307.org">cdc-20240307.org</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304-bes.pdf">test-matematica-20240304-bes.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304-bes.synctex.gz">test-matematica-20240304-bes.synctex.gz</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/amp3.png">amp3.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/amp4.png">amp4.png</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304.aux">test-matematica-20240304.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304-bes.tex">test-matematica-20240304-bes.tex</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/cdc1711.org">cdc1711.org</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-fisica-20240125.log">test-fisica-20240125.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/cdc-0210.org">cdc-0210.org</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-tmp.aux">test-tmp.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023-bis.pdf">test-matematica-16112023-bis.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023.log">test-matematica-16112023.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-16112023-bis.aux">test-matematica-16112023-bis.aux</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304-bes.log">test-matematica-20240304-bes.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-20240304.log">test-matematica-20240304.log</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-fisica-20240125.pdf">test-fisica-20240125.pdf</a><br>
+	│   ├── <a class="DIR" href="./uploads/5F/relativita/">relativita</a><br>
+	│   │   ├── <a class="NORM" href="./uploads/5F/relativita/rel-1.tex">rel-1.tex</a><br>
+	│   │   ├── <a class="NORM" href="./uploads/5F/relativita/rel-1.org">rel-1.org</a><br>
+	│   │   └── <a class="NORM" href="./uploads/5F/relativita/rel-1.pdf">rel-1.pdf</a><br>
+	│   ├── <a class="NORM" href="./uploads/5F/test-matematica-10012024.tex">test-matematica-10012024.tex</a><br>
+	│   └── <a class="NORM" href="./uploads/5F/test-tmp.tex">test-tmp.tex</a><br>
+	├── <a class="NORM" href="./uploads/logo_Curie.png">logo_Curie.png</a><br>
+	├── <a class="NORM" href="./uploads/index.html">index.html</a><br>
+	├── <a class="NORM" href="./uploads/intro.html">intro.html</a><br>
+	├── <a class="NORM" href="./uploads/openday-turni.org">openday-turni.org</a><br>
+	└── <a class="DIR" href="./uploads/uploads/">uploads</a><br>
+	&nbsp;&nbsp;&nbsp; └── <a class="NORM" href="./uploads/uploads/prova.txt">prova.txt</a><br>
+<br><br><p>
 
-<div id="outline-container-org2f11d86" class="outline-2">
-<h2 id="org2f11d86"><span class="section-number-2">1</span> Header 1</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Some text
-</p>
-</div>
+5 directories, 136 files
 
-<div id="outline-container-org4cde1b6" class="outline-3">
-<h3 id="org4cde1b6"><span class="section-number-3">1.1</span> Subheader 2</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-List example:
 </p>
-<ul class="org-ul">
-<li>One</li>
-<li>Two</li>
-<li>Three</li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org225d2e8" class="outline-2">
-<h2 id="org225d2e8"><span class="section-number-2">2</span> Molto bene</h2>
-<div class="outline-text-2" id="text-2">
-<p>
-Molto bene
-</p>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: tiZero</p>
-<p class="date">Created: 2023-02-26 Sun 09:22</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
-</div>
+	<hr>
+	<p class="VERSION">
+		 tree v2.1.1 © 1996 - 2023 by Steve Baker and Thomas Moore <br>
+		 HTML output hacked and copyleft © 1998 by Francesc Rocher <br>
+		 JSON output hacked and copyleft © 2014 by Florian Sesser <br>
+		 Charsets / OS/2 support © 2001 by Kyosuke Tokoro
+	</p>
 </body>
 </html>
