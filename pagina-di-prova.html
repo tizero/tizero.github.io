@@ -3,13 +3,44 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-08-26 lun 19:22 -->
+<!-- 2024-08-26 lun 19:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Titolo di prova</title>
-<meta name="author" content="Ivo Cicchese" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="content" class="content">
@@ -17,6 +48,18 @@
 <p>
 Contenuto di prova.
 </p>
+<div id="outline-container-orga2e51df" class="outline-2">
+<h2 id="orga2e51df">Headline</h2>
+<div class="outline-text-2" id="text-orga2e51df">
+<p>
+Matematica <i>inline</i> \(x^2 + 1 = 0\) oppure matematica <i>display</i>
+</p>
+\begin{equation}
+\label{eq:1}
+E = \int_{\Omega} \mathrm{d}\,x
+\end{equation}
+</div>
+</div>
 </div>
 </body>
 </html>
