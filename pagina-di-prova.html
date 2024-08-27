@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it">
 <head>
-<!-- 2024-08-26 lun 19:31 -->
+<!-- 2024-08-27 mar 15:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Titolo di prova</title>
+<title>Funzione di Dirichlet</title>
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
 <script>
@@ -44,19 +44,51 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Titolo di prova</h1>
+<h1 class="title">Funzione di Dirichlet</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Indice</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2c7694f">Definizione</a></li>
+<li><a href="#org610551f">Proprietà</a></li>
+</ul>
+</div>
+</div>
+<div class="abstract" id="orgacec816">
 <p>
-Contenuto di prova.
+La <b>funzione di Dirichlet</b> è una funzione di variabile reale, che assume due soli
+valori, diversi a seconda che la variabile indipendente sia razionale o meno.
 </p>
-<div id="outline-container-orga2e51df" class="outline-2">
-<h2 id="orga2e51df">Headline</h2>
-<div class="outline-text-2" id="text-orga2e51df">
+
+</div>
+<div id="outline-container-org2c7694f" class="outline-2">
+<h2 id="org2c7694f">Definizione</h2>
+<div class="outline-text-2" id="text-org2c7694f">
 <p>
-Matematica <i>inline</i> \(x^2 + 1 = 0\) oppure matematica <i>display</i>
+La funzione di Dirichlet è definita nel modo seguente
 </p>
 \begin{equation}
 \label{eq:1}
-E = \int_{\Omega} \mathrm{d}\,x
+\chi(x) = \left\{ \begin{array}{ll}
+       1 & x \in \mathbb{Q}\\
+       0 & x \in \mathbb{R} \setminus \mathbb{Q}
+       \end{array} \right.
+\end{equation}
+<p>
+È la <a href="https://it.wikipedia.org/wiki/Funzione_indicatrice">funzione indicatrice</a> dell&rsquo;insieme dei numeri razionali.
+</p>
+</div>
+</div>
+<div id="outline-container-org610551f" class="outline-2">
+<h2 id="org610551f">Proprietà</h2>
+<div class="outline-text-2" id="text-org610551f">
+<p>
+La funzione \(\chi\) è approssimabile mediante funzioni continue secondo la formula
+seguente:
+</p>
+\begin{equation}
+\label{eq:2}
+\chi(x) = \lim_{n \to \infty} \left( \lim_{m \to \infty} \cos\left( \pi n! x \right)^{2m} \right)
 \end{equation}
 </div>
 </div>
